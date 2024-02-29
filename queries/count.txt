@@ -1,0 +1,10 @@
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX : <http://www.semanticweb.org/meike/ontologies/2024/0/m_0#>
+
+SELECT ?model_class (COUNT(distinct ?model) AS ?count) 
+
+WHERE { 
+	?model_class rdfs:subClassOf :model.
+	?model rdf:type ?model_class.
+} Group by ?model_class

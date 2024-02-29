@@ -1,0 +1,20 @@
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX : <http://www.semanticweb.org/meike/ontologies/2024/0/m_1#>
+
+SELECT ?models ?model_classes 
+WHERE { 
+	?model_classes rdfs:subClassOf :model.
+	?models rdf:type ?model_classes.	
+
+	?prop_class rdfs:subPropertyOf owl:topObjectProperty.
+	?new_prop rdfs:subPropertyOf ?prop_class.	# define new object property
+	?models ?new_prop ?value.		# only models that contain new property
+
+    ## If there are 2 qulaity properties (or more).
+    ## Duplicate this block for each additional one
+	?new_prop2 rdfs:subPropertyOf ?prop_class.	 
+	?models ?new_prop2 ?value2.	# only models that contain both new properties
+	Filter( ?new_prop != ?new_prop2 ) 	# two different new properties
+
+} Group by ?models ?model_classes

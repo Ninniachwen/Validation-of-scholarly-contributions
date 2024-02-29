@@ -1,0 +1,21 @@
+Claim 1
+Abstract
+The performance of a statistical machine translation system is empirically found to improve by using the conditional probabilities of phrase pairs computed by the RNN Encoder–Decoder as an additional feature in the existing log-linear model.
+Introduction
+The empirical evaluation reveals that this approach of scoring phrase pairs with an RNN Encoder–Decoder improves the translation performance.
+
+Claim 2
+Abstract
+Qualitatively, we show that the proposed model learns a semantically and syntactically meaningful representation of linguistic phrases.
+Introduction
+The qualitative analysis shows that the RNN Encoder–Decoder is better at capturing the linguistic regularities in the phrase table, indirectly explaining the quantitative improvements in the overall translation performance.
+
+Proof 1
+Quantitative
+The results are presented in Table 1.
+As expected, adding features computed by neural networks consistently improves the performance over the baseline performance.
+The best performance was achieved when we used both CSLM and the phrase scores from the RNN Encoder–Decoder.
+
+Proof 2
+Qualitative
+In most cases, the choices of the target phrases by the RNN Encoder–Decoder are closer to actual or literal translations.

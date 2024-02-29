@@ -1,0 +1,24 @@
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX : <http://www.semanticweb.org/meike/ontologies/2024/1/n_0#>
+
+SELECT ?models_n (GROUP_CONCAT(DISTINCT ?prop; SEPARATOR=", ") AS ?properties) (GROUP_CONCAT(DISTINCT ?prop2; SEPARATOR=", ") AS ?properties2)
+WHERE {
+	?model_b rdf:type :baseline_model.	# baseline models
+	?new_model_class rdfs:subClassOf :model.
+	?models_n rdf:type ?new_model_class.	 	# models other than baseline
+	FILTER NOT EXISTS { ?models_n rdf:type :baseline_model }	# compare baseline with non baseline
+	
+	## quantitative property tl to compare (>)
+	?prop rdfs:subPropertyOf :experiment_larger_than.	
+	?model_b ?prop ?baseline_results_lt.		# baseline values
+	?models_n ?prop ?new_results_lt.			# new values
+	FILTER(?new_results_lt > ?baseline_results_lt)
+
+	## quantitative property st to compare (<)	
+	?prop2 rdfs:subPropertyOf :experiment_smaller_than.		
+	?model_b ?prop2 ?baseline_results_st.		# baseline values
+	?models_n ?prop2 ?new_results_st.			# new values
+	FILTER(?new_results_st < ?baseline_results_st)
+	
+} Group by  ?models_n

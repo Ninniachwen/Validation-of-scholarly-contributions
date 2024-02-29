@@ -1,0 +1,43 @@
+claim 1
+abstract
+The ByteNet decoder attains state-of-the-art performance on character-level language modelling and outperforms the previous best results obtained with recurrent networks.
+
+claim 2
+abstract
+The ByteNet decoder achieves state-of-the-art performance on character-to-character machine translation on the English-to-German WMT translation task, ...
+
+claim 3
+abstract
+... it runs in time that is linear in the length of the sequences ...
+
+claim 4
+abstract
+... it sidesteps the need for excessive memorization.
+
+
+proof 1
+Character-Level Machine Translation
+Table 2 and Table 4 contain the results of the experiments.
+On NewsTest 2014 the ByteNet achieves the highest performance in character-level and subword-level neural machine
+translation, and compared to the word-level systems it is
+second only to the version of GNMT that uses word-pieces.
+On NewsTest 2015, to our knowledge, ByteNet achieves
+the best published results to date
+
+proof 2
+Character Prediction
+The ByteNet decoder achieves 1.31 bits/character on the test set.
+
+proof 3
+model comparison
+comparison of properties
+The first column indicates the time complexity of the network as a function of the length of the sequences and is denoted by Time.
+Table 1 summarizes the properties of the models.
+The ByteNet, the Recurrent ByteNets and the RNN Enc-Dec are the only networks that have linear running time
+
+proof 4
+desiderata
+Second, the size of the source representation should be linear in the length of the source string, i.e. it should be resolution preserving, and not have constant size. This is to avoid burdening the model with an additional memorization step before translation.
+model comparison
+comparison of properties
+The second (resolution preservation) desideratum corresponds to the RP column, which indicates whether the source representation in the network is resolution preserving.

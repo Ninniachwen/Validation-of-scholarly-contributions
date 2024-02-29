@@ -1,0 +1,16 @@
+claim 1
+significantly impove state of the art
+makedly improves performance
+up to 20% relative error reductions.
+
+proof 1
+
+ As shown in Table 1, when
+adding ELMo to a re-implementation of He et al.
+(2017) the single model test set F1 jumped 3.2%
+from 81.4% to 84.6% – a new state-of-the-art on
+the OntoNotes benchmark (Pradhan et al., 2013),
+even improving over the previous best ensemble
+result by 1.2%
+
+Table 1

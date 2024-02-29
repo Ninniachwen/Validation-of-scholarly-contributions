@@ -1,0 +1,11 @@
+claim 1
+abstract
+In this paper, we propose an accelerated robust subset selection method to highly raise the speed on the one hand…
+
+claim 2
+abstract
+… and to boost the robustness on the other. 
+
+
+proof 1
+the results in Table 3a verify an average acceleration of 23275 times faster than RRSSNie and 281 times faster than TED
